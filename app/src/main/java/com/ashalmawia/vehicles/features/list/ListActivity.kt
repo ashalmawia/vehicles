@@ -1,7 +1,8 @@
-package com.ashalmawia.vehicles
+package com.ashalmawia.vehicles.features.list
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+import com.ashalmawia.vehicles.R
 
 class ListActivity : AppCompatActivity() {
 
