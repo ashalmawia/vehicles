@@ -11,4 +11,7 @@ class VehicleListViewMock : VehiclesListView {
     override fun showVehicles(vehicles: List<Vehicle>) {
         _shownVehicles.addAll(vehicles)
     }
+
+    override fun showError(message: Int) {
+    }
 }

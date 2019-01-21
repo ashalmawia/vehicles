@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Vehicles</string>
+
+    <string name="get_list_error">Error fetching list of vehicles. Try again later.</string>
 </resources>

@@ -1,6 +1,10 @@
 package com.ashalmawia.vehicles.features.list
 
+import com.ashalmawia.vehicles.R
 import com.ashalmawia.vehicles.data.Repository
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.schedulers.Schedulers
 
 interface VehiclesListPresenter {
 
@@ -14,11 +18,21 @@ class VehiclesListPresenterImpl(
     private val repository: Repository
 ) : VehiclesListPresenter {
 
+    private val subscriptions = CompositeDisposable()
+
     override fun start() {
-        // TODO: make async
-        view.showVehicles(repository.getVehicles())
+        val subscription = repository.getVehicles()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                view.showVehicles(it)
+            }, {
+                view.showError(R.string.get_list_error)
+            })
+        subscriptions.add(subscription)
     }
 
     override fun stop() {
+        subscriptions.clear()
     }
 }

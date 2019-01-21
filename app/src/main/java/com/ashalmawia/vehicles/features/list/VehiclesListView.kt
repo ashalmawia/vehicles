@@ -1,13 +1,17 @@
 package com.ashalmawia.vehicles.features.list
 
+import android.support.annotation.StringRes
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
+import android.widget.Toast
 import com.ashalmawia.vehicles.model.Vehicle
 
 interface VehiclesListView {
 
     fun showVehicles(vehicles: List<Vehicle>)
+
+    fun showError(@StringRes message: Int)
 }
 
 class VehiclesListViewImpl(root: ViewGroup) : VehiclesListView {
@@ -21,5 +25,9 @@ class VehiclesListViewImpl(root: ViewGroup) : VehiclesListView {
 
         val adapter = VehiclesListAdapter(context, vehicles)
         list.adapter = adapter
+    }
+
+    override fun showError(@StringRes message: Int) {
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
 }

@@ -1,15 +1,32 @@
 package com.ashalmawia.vehicles.data.network
 
 import com.ashalmawia.vehicles.data.Repository
+import com.ashalmawia.vehicles.data.network.retrofit.VehiclesAPI
 import com.ashalmawia.vehicles.model.Vehicle
+import io.reactivex.Observable
+import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
+import retrofit2.converter.moshi.MoshiConverterFactory
+
+private const val BASE_URL = "http://private-6d86b9-vehicles5.apiary-mock.com"
 
 class NetworkRepository : Repository {
 
-    override fun getVehicles(): List<Vehicle> {
-        // TODO; mock
-        return listOf(
-            Vehicle("Sample Vehicle 1"),
-            Vehicle("Sample Vehicle 2")
-        )
+    private val vehiclesApi: VehiclesAPI
+
+    init {
+        val client = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(MoshiConverterFactory.create())
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .build()
+        vehiclesApi = client.create(VehiclesAPI::class.java)
+    }
+
+    override fun getVehicles(): Observable<List<Vehicle>> {
+        return vehiclesApi.getVehicles()
+            .map {
+                it.toVehiclesList()
+            }
     }
 }
