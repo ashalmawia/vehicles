@@ -2,12 +2,8 @@
 <FrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".features.list.ListActivity">
-
-    <fragment android:layout_width="match_parent" android:layout_height="match_parent"
-              android:id="@+id/fragment"
-              android:name="com.ashalmawia.vehicles.features.list.VehiclesListFragment" />
-
-</FrameLayout>
+        tools:context=".features.ListActivity"
+        />

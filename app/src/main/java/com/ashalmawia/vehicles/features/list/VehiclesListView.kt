@@ -1,6 +1,7 @@
 package com.ashalmawia.vehicles.features.list
 
 import android.support.annotation.StringRes
+import android.support.v7.app.ActionBar
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
@@ -15,16 +16,22 @@ interface VehiclesListView {
     fun showError()
 }
 
-class VehiclesListViewImpl(root: ViewGroup) : VehiclesListView {
+class VehiclesListViewImpl(root: ViewGroup, actionBar: ActionBar) : VehiclesListView {
+
+    lateinit var presenter: VehiclesListPresenter
 
     private val list = root as RecyclerView
 
     private val context = root.context
 
+    init {
+        actionBar.setTitle(R.string.app_name)
+    }
+
     override fun showVehicles(vehicles: List<Vehicle>) {
         list.layoutManager = LinearLayoutManager(context)
 
-        val adapter = VehiclesListAdapter(context, vehicles)
+        val adapter = VehiclesListAdapter(context, vehicles, presenter::openVehicleDetails)
         list.adapter = adapter
     }
 

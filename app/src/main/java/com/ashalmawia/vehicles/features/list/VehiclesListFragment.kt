@@ -7,15 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import com.ashalmawia.vehicles.R
 import com.ashalmawia.vehicles.data.Repository
+import com.ashalmawia.vehicles.features.actionBar
+import com.ashalmawia.vehicles.features.navigator
 import java.lang.IllegalStateException
 
 class VehiclesListFragment: Fragment() {
 
-    private var view: VehiclesListView? = null
     private var presenter: VehiclesListPresenter? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_vehicles_list, container)
+        return inflater.inflate(R.layout.fragment_vehicles_list, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -24,10 +25,12 @@ class VehiclesListFragment: Fragment() {
     }
 
     private fun initialize(root: View) {
-        val view = VehiclesListViewImpl(root as ViewGroup)
+        val view = VehiclesListViewImpl(root as ViewGroup, actionBar)
 
-        this.presenter = VehiclesListPresenterImpl(view, Repository.get())
-        this.view = view
+        val presenter = VehiclesListPresenterImpl(view, Repository.get(), navigator)
+        this.presenter = presenter
+
+        view.presenter = presenter
     }
 
     override fun onStart() {
@@ -45,7 +48,6 @@ class VehiclesListFragment: Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
 
-        view = null
         presenter = null
     }
 }

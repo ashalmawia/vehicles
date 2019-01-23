@@ -7,6 +7,7 @@ import io.reactivex.Observable
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
+import java.lang.IllegalStateException
 
 private const val BASE_URL = "http://private-6d86b9-vehicles5.apiary-mock.com"
 
@@ -28,5 +29,9 @@ class NetworkRepository : Repository {
             .map {
                 it.toVehiclesList()
             }
+    }
+
+    override fun vehicleById(id: Int): Vehicle? {
+        throw IllegalStateException("not yet supported")
     }
 }

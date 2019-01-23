@@ -10,12 +10,13 @@ import com.ashalmawia.vehicles.model.Vehicle
 
 class VehiclesListAdapter(
     private val context: Context,
-    private val data: List<Vehicle>
+    private val data: List<Vehicle>,
+    private val onClick: (Vehicle) -> Unit
 ) : RecyclerView.Adapter<VehicleViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): VehicleViewHolder {
         val view = LayoutInflater.from(context).inflate(android.R.layout.simple_list_item_1, parent, false)
-        return VehicleViewHolder(view)
+        return VehicleViewHolder(view, onClick)
     }
 
     override fun getItemCount(): Int = data.size
@@ -26,11 +27,12 @@ class VehiclesListAdapter(
     }
 }
 
-class VehicleViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+class VehicleViewHolder(view: View, private val onClick: (Vehicle) -> Unit) : RecyclerView.ViewHolder(view) {
 
     private val text = view as TextView
 
     fun bind(vehicle: Vehicle) {
+        text.setOnClickListener { onClick(vehicle) }
         text.text = vehicle.name
     }
 }

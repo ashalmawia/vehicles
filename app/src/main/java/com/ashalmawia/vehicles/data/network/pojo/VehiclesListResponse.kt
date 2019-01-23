@@ -13,6 +13,6 @@ data class VehiclesListResponse(
 ) {
 
     fun toVehiclesList(): List<Vehicle> {
-        return vehicles.map { Vehicle(it.vrn) }
+        return vehicles.map { Vehicle(it.vehicleId, it.vrn, it.country, it.color, it.type, it.default) }
     }
 }

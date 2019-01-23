@@ -2,4 +2,15 @@
     <string name="app_name">Vehicles</string>
 
     <string name="get_list_error">Error fetching list of vehicles. Try again later.</string>
+    
+    <string name="vehicle_details__id">Id:</string>
+    <string name="vehicle_details__country">Country:</string>
+    <string name="vehicle_details__color">Color:</string>
+    <string name="vehicle_details__type">Type:</string>
+    <string name="vehicle_details__default">Is default:</string>
+
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <string name="vehicle_details__error">There was a problem retrieving vehicle details</string>
 </resources>

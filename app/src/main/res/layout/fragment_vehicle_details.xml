@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:orientation="vertical"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:padding="@dimen/margin_default">
+
+    <TableRow>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/VehicleDetails.Title"
+                android:text="@string/vehicle_details__id"
+        />
+
+        <TextView
+                android:id="@+id/labelId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/VehicleDetails.Text"
+        />
+
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/VehicleDetails.Title"
+                android:text="@string/vehicle_details__country"
+        />
+
+        <TextView
+                android:id="@+id/labelCountry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/VehicleDetails.Text"
+        />
+
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/VehicleDetails.Title"
+                android:text="@string/vehicle_details__color"
+        />
+
+        <TextView
+                android:id="@+id/labelColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/VehicleDetails.Text"
+        />
+
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/VehicleDetails.Title"
+                android:text="@string/vehicle_details__type"
+        />
+
+        <TextView
+                android:id="@+id/labelType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/VehicleDetails.Text"
+        />
+
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/VehicleDetails.Title"
+                android:text="@string/vehicle_details__default"
+        />
+
+        <TextView
+                android:id="@+id/labelIsDefault"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/VehicleDetails.Text"
+        />
+
+    </TableRow>
+
+</TableLayout>

@@ -8,4 +8,14 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="VehicleDetails" parent="TextAppearance.AppCompat" />
+    <style name="VehicleDetails.Text">
+        <item name="android:textSize">@dimen/text_default</item>
+        <item name="android:padding">@dimen/padding_small</item>
+    </style>
+    <style name="VehicleDetails.Title" parent="VehicleDetails.Text">
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">end</item>
+    </style>
+
 </resources>
