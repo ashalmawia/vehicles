@@ -1,6 +1,5 @@
 package com.ashalmawia.vehicles.features.list
 
-import com.ashalmawia.vehicles.R
 import com.ashalmawia.vehicles.data.Repository
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -27,7 +26,7 @@ class VehiclesListPresenterImpl(
             .subscribe({
                 view.showVehicles(it)
             }, {
-                view.showError(R.string.get_list_error)
+                view.showError()
             })
         subscriptions.add(subscription)
     }

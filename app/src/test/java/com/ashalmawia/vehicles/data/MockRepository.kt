@@ -9,3 +9,10 @@ class MockRepository(private val list: List<Vehicle>) : Repository {
         return Observable.just(list)
     }
 }
+
+class ErrorRepository(private val error: Throwable) : Repository {
+
+    override fun getVehicles(): Observable<List<Vehicle>> {
+        return Observable.error(error)
+    }
+}
