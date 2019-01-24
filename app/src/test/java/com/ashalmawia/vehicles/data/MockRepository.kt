@@ -3,10 +3,17 @@ package com.ashalmawia.vehicles.data
 import com.ashalmawia.vehicles.model.Vehicle
 import io.reactivex.Observable
 
-class MockRepository(private val list: List<Vehicle>) : Repository {
+class MockRepository(list: List<Vehicle>) : Repository {
+
+    private val list = list.toMutableList()
 
     override fun getVehicles(): Observable<List<Vehicle>> {
         return Observable.just(list)
+    }
+
+    fun changeVehicles(vehicles: List<Vehicle>) {
+        list.clear()
+        list.addAll(vehicles)
     }
 
     override fun vehicleById(id: Int): Vehicle? = list.find { it.id == id }

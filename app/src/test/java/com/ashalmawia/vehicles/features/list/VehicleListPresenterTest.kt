@@ -29,8 +29,8 @@ class VehicleListPresenterTest {
     fun `vehicles are loaded and shown in view`() {
         // given
         val list = listOf(
-            vehicle("Test Vehicle 1"),
-            vehicle("Test Vehicle 2")
+            vehicle(name = "Test Vehicle 1"),
+            vehicle(name = "Test Vehicle 2")
         )
 
         val mockRepository = MockRepository(list)

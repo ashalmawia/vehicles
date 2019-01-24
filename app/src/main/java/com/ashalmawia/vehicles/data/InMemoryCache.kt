@@ -3,6 +3,11 @@ package com.ashalmawia.vehicles.data
 import com.ashalmawia.vehicles.model.Vehicle
 import io.reactivex.Observable
 
+/**
+ * Simple cache for repository data.
+ *
+ * In future should have expiration time and/or method to manually invalidate cache.
+ */
 class InMemoryCache(private val inner: Repository) : Repository {
 
     private val cache = mutableMapOf<Int, Vehicle>()
