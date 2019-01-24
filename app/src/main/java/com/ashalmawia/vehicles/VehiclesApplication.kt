@@ -5,9 +5,12 @@ import android.content.Context
 import com.ashalmawia.vehicles.dependency.ServiceLocator
 import com.ashalmawia.vehicles.dependency.ServiceLocatorImpl
 
-class VehiclesApplication : Application() {
+/**
+ * Open for testing.
+ */
+open class VehiclesApplication : Application() {
 
-    val serviceLocator: ServiceLocator = ServiceLocatorImpl
+    open val serviceLocator: ServiceLocator = ServiceLocatorImpl
 }
 
 val Context.serviceLocator: ServiceLocator
