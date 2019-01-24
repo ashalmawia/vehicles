@@ -6,7 +6,7 @@ import android.support.v7.app.ActionBar
 import android.support.v7.app.AppCompatActivity
 import com.ashalmawia.vehicles.R
 
-class ListActivity : AppCompatActivity() {
+class SingleActivity : AppCompatActivity() {
 
     /**
      * Doesn't make sense to expose this as a part of an interface,
@@ -17,7 +17,7 @@ class ListActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_list)
+        setContentView(R.layout.single_activity)
 
         navigator.openVehiclesList()
     }
@@ -29,7 +29,7 @@ class ListActivity : AppCompatActivity() {
  * or in case of multiple activities they are expected to have different Navigator interfaces.
  */
 val Fragment.navigator: Navigator
-    get() = (activity as ListActivity).navigator
+    get() = (activity as SingleActivity).navigator
 
 val Fragment.actionBar: ActionBar
     get() = (activity as AppCompatActivity).supportActionBar!!
