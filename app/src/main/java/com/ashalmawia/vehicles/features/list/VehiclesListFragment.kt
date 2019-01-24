@@ -6,10 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.ashalmawia.vehicles.R
-import com.ashalmawia.vehicles.data.Repository
 import com.ashalmawia.vehicles.features.actionBar
 import com.ashalmawia.vehicles.features.navigator
-import java.lang.IllegalStateException
+import com.ashalmawia.vehicles.serviceLocator
 
 class VehiclesListFragment: Fragment() {
 
@@ -27,7 +26,7 @@ class VehiclesListFragment: Fragment() {
     private fun initialize(root: View) {
         val view = VehiclesListViewImpl(root as ViewGroup, actionBar)
 
-        val presenter = VehiclesListPresenterImpl(view, Repository.get(), navigator)
+        val presenter = VehiclesListPresenterImpl(view, activity!!.serviceLocator.repository, navigator)
         this.presenter = presenter
 
         view.presenter = presenter

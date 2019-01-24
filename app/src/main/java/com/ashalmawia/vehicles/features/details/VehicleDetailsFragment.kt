@@ -6,10 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.ashalmawia.vehicles.R
-import com.ashalmawia.vehicles.data.Repository
 import com.ashalmawia.vehicles.features.actionBar
 import com.ashalmawia.vehicles.features.navigator
 import com.ashalmawia.vehicles.model.Vehicle
+import com.ashalmawia.vehicles.serviceLocator
 
 private const val ARGUMENTS_VEHICLE_ID = "VehicleId"
 
@@ -29,7 +29,7 @@ class VehicleDetailsFragment : Fragment() {
         super.onViewCreated(root, savedInstanceState)
 
         val view = VehicleDetailsViewImpl(root, actionBar)
-        val presenter = VehicleDetailsPresenterImpl(view, Repository.get(), navigator)
+        val presenter = VehicleDetailsPresenterImpl(view, activity!!.serviceLocator.repository, navigator)
 
         val id = arguments?.vehicleId
         if (id != null) {
